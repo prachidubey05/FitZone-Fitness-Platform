@@ -14,15 +14,15 @@ import Dashboard from "./pages/Dashboard";
 
 import "./App.css";
 
-// function NotFound() {
-//   return (
-//     <main className="not-found">
-//       <h1>404 - Page Not Found</h1>
-//       <p>The page you are looking for does not exist.</p>
-//       <a className="btn-primary" href="/">Back to Home</a>
-//     </main>
-//   );
-// }
+function NotFound() {
+  return (
+    <main className="not-found">
+      <h1>404 - Page Not Found</h1>
+      <p>The page you are looking for does not exist.</p>
+      <a className="btn-primary" href="/">Back to Home</a>
+    </main>
+  );
+}
 
 export default function App() {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { activities } from "../services/fitnessService";
+import { activities } from "../services/api";
 
 export default function Dashboard() {
   return (

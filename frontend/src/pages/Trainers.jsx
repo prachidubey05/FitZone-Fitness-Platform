@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import TrainerCard from "../components/TrainerCard/TrainerCard";
-import { trainers } from "../services/fitnessService";
+import { trainers } from "../services/api";
 
 export default function Trainers() {
   return (

@@ -1,5 +1,5 @@
 import MembershipCard from "../components/MembershipCard/MembershipCard";
-import { plans } from "../services/fitnessService";
+import { plans } from "../services/api";
 
 export default function Membership() {
   return (
