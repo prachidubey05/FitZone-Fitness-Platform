@@ -1,23 +1,24 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
-    return (
-        <nav className="navbar">
-            <div className="logo">
-                FitZone
-            </div>
+  return (
+    <header className="navbar">
+      <NavLink to="/" className="logo">
+        FitZone<span>.</span>
+      </NavLink>
 
-            <div className="nav-links">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/trainers">Trainers</Link>
-                <Link to="/membership">Membership</Link>
-                <Link to="/contact">Contact</Link>
-                <Link to="/login">Login</Link>
-            </div>
-        </nav>
-    );
+      <nav className="nav-links">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/trainers">Trainers</NavLink>
+        <NavLink to="/membership">Membership</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </nav>
+
+      <NavLink to="/login" className="login-btn">
+        Login
+      </NavLink>
+    </header>
+  );
 }
-
-// export default Navbar;

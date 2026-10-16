@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { services } from "../services/fitnessService";
+import { services } from "../services/api";
 
 export default function Home() {
   return (
