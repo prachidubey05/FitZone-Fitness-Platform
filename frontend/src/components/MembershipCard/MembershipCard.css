@@ -1,0 +1,117 @@
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+  border-color: #cbd5e1;
+}
+
+.featured-plan {
+  border: 2px solid #7c3aed;
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.15);
+  transform: translateY(-8px);
+}
+
+.featured-plan:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.22);
+}
+
+.popular-label {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.plan-card h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px;
+}
+
+.plan-description,
+.plan-duration {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.plan-price {
+  font-size: 44px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 24px 0 4px;
+}
+
+.plan-price span {
+  color: #7c3aed;
+  font-size: 24px;
+  margin-right: 2px;
+}
+
+.plan-card ul {
+  padding: 0;
+  margin: 26px 0 32px;
+  list-style: none;
+  flex: 1;
+}
+
+.plan-card li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 14px;
+}
+
+.plan-card li span.check {
+  color: #2563eb;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.plan-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #0f172a;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.plan-button:hover {
+  background: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.featured-plan .plan-button {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+}
+
+.featured-plan .plan-button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
