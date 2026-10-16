@@ -1,5 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -13,55 +12,36 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
+import "./App.css";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+// function NotFound() {
+//   return (
+//     <main className="not-found">
+//       <h1>404 - Page Not Found</h1>
+//       <p>The page you are looking for does not exist.</p>
+//       <a className="btn-primary" href="/">Back to Home</a>
+//     </main>
+//   );
+// }
 
 export default function App() {
   return (
-    <>
-      <ScrollToTop />
+    <BrowserRouter>
       <Navbar />
 
-      <main>
-        <Routes>
-          {/* <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/trainers" element={<Trainers />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} /> */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/trainers" element={<Trainers />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
       <Footer />
-      <h1>
-        hello
-      </h1>
-    </>
+    </BrowserRouter>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
