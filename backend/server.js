@@ -11,6 +11,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/trainers", require("./routes/trainerRoutes"));
+app.use("/api/memberships", require("./routes/membershipRoutes"));
 
 app.get("/", (req, res) => {
     res.json({
