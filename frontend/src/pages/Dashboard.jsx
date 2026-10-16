@@ -1,22 +1,62 @@
-import { Link, Navigate } from "react-router-dom";
-import { getSavedUser } from "../services/api";
+import { Link } from "react-router-dom";
+import { activities } from "../services/fitnessService";
 
 export default function Dashboard() {
-  const user = getSavedUser();
-  if (!user || !user.name || !localStorage.getItem("fitzone_token")) return <Navigate to="/login" replace />;
-
   return (
-    <section className="page-section container dashboard">
-      <p className="eyebrow">YOUR FITZONE</p>
-      <h1 className="page-title">Welcome, <span>{(user.name || "Member").split(" ")[0]}.</span></h1>
-      <p className="page-intro">Your account is ready. Explore trainers and membership options to plan your next step.</p>
-      <div className="dashboard-grid">
-        <article className="dashboard-card"><span className="dashboard-icon">◎</span><h3>Account details</h3><p><strong>Name:</strong> {user.name}</p><p><strong>Email:</strong> {user.email}</p></article>
-        <article className="dashboard-card"><span className="dashboard-icon">↗</span><h3>Find your plan</h3><p className="muted">Compare available plans and their features.</p><Link className="text-link" to="/membership">Explore memberships →</Link></article>
-        <article className="dashboard-card"><span className="dashboard-icon">✦</span><h3>Meet the coaches</h3><p className="muted">Discover trainer specializations and experience.</p><Link className="text-link" to="/trainers">Meet our trainers →</Link></article>
-      </div>
-      <p className="notice">This starter dashboard displays account information. Membership purchase and payment are not implemented.</p>
-    </section>
+    <main className="dashboard-page">
+      <section className="dashboard-heading">
+        <div>
+          <p className="eyebrow">Member Overview</p>
+          <h1>Welcome to FitZone!</h1>
+          <p>Here's a sample overview of your fitness journey.</p>
+        </div>
+        <Link to="/membership" className="btn-primary">
+          Explore Plans
+        </Link>
+      </section>
+
+      <section className="dashboard-stats">
+        <article className="stat-card">
+          <span>Membership</span>
+          <h2>Basic</h2>
+          <p>Sample membership</p>
+        </article>
+        <article className="stat-card">
+          <span>Weekly Workouts</span>
+          <h2>3</h2>
+          <p>Sample activity data</p>
+        </article>
+        <article className="stat-card">
+          <span>Fitness Goal</span>
+          <h2>Consistency</h2>
+          <p>Keep moving forward</p>
+        </article>
+      </section>
+
+      <section className="activity-section">
+        <h2>Workout Overview</h2>
+        <p className="dashboard-muted">
+          Example schedule for demonstrating the dashboard UI.
+        </p>
+
+        <div className="activity-list">
+          {activities.map((item) => (
+            <article className="activity-item" key={item.day}>
+              <span className="activity-day">{item.day}</span>
+              <div className="activity-name">
+                <h3>{item.activity}</h3>
+                <p>{item.duration}</p>
+              </div>
+              <span className="activity-status">Planned</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <p className="dashboard-note">
+        Demo dashboard: membership and workout details are sample data.
+        Real user data requires authentication and backend integration.
+      </p>
+    </main>
   );
 }
-
