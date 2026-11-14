@@ -19,3 +19,9 @@
     text-decoration: none;
     color: black;
 }
+.nav-logout { background: transparent; color: #2563eb; font-weight: 700; }
+
+@media (max-width: 760px) {
+    .navbar { align-items: flex-start; flex-direction: column; gap: 14px; padding: 18px 6%; }
+    .nav-links { flex-wrap: wrap; gap: 12px 18px; }
+}
