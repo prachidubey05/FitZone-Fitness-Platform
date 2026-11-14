@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Routes, Route, Link } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -19,14 +20,16 @@ function NotFound() {
     <main className="not-found">
       <h1>404 - Page Not Found</h1>
       <p>The page you are looking for does not exist.</p>
-      <a className="btn-primary" href="/">Back to Home</a>
+      <Link className="btn-primary" to="/">
+        Back to Home
+      </Link>
     </main>
   );
 }
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
 
       <Routes>
@@ -42,6 +45,6 @@ export default function App() {
       </Routes>
 
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
