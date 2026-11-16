@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -11,6 +11,9 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Classes from "./pages/Classes";
+import Admin from "./pages/Admin";
+import { getSavedUser } from "./services/api";
 
 import "./App.css";
 
@@ -22,6 +25,13 @@ function NotFound() {
       <a className="btn-primary" href="/">Back to Home</a>
     </main>
   );
+}
+function ProtectedRoute({ children, adminOnly = false }) {
+  const token = localStorage.getItem("token");
+  const user = getSavedUser();
+  if (!token) return <Navigate to="/login" replace />;
+  if (adminOnly && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
+  return children;
 }
 
 export default function App() {
@@ -45,3 +55,4 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
