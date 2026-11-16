@@ -1,24 +1,32 @@
-import { NavLink } from "react-router-dom";
+// PHASE 3 UPDATE: Navigation reflects the signed-in role and supports logout.
+import { Link, useNavigate } from "react-router-dom";
+import { clearSession, getSavedUser } from "../../services/api";
 import "./Navbar.css";
 
 export default function Navbar() {
-  return (
-    <header className="navbar">
-      <NavLink to="/" className="logo">
-        FitZone<span>.</span>
-      </NavLink>
+    const user = getSavedUser();
+    const navigate = useNavigate();
+    function logout() { clearSession(); navigate("/"); }
+    return (
+        <nav className="navbar">
+            <div className="logo">
+                FitZone
+            </div>
 
-      <nav className="nav-links">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/trainers">Trainers</NavLink>
-        <NavLink to="/membership">Membership</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-      </nav>
-
-      <NavLink to="/login" className="login-btn">
-        Login
-      </NavLink>
-    </header>
-  );
+            <div className="nav-links">
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/trainers">Trainers</Link>
+                <Link to="/classes">Classes</Link>
+                <Link to="/membership">Membership</Link>
+                <Link to="/contact">Contact</Link>
+                {user ? <Link to="/dashboard">Dashboard</Link> : <Link to="/login">Login</Link>}
+                {user?.role === "admin" && <Link to="/admin">Admin</Link>}
+                {user && <button className="nav-logout" onClick={logout}>Log out</button>}
+            </div>
+        </nav>
+    );
 }
+
+// export default Navbar;
+
