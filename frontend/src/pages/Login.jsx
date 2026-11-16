@@ -98,7 +98,8 @@ export default function Login() {
 
       // Store token for subsequent authenticated requests.
       localStorage.setItem("token", data.token);
-
+      localStorage.setItem("user", JSON.stringify(data.user));
+      
       // Adjust this path to your app's dashboard/home route.
       navigate("/dashboard");
     } catch (err) {
