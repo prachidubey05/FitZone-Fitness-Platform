@@ -9,11 +9,13 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173").split(",").map((origin) => origin.trim());
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/trainers", require("./routes/trainerRoutes"));
 app.use("/api/memberships", require("./routes/membershipRoutes"));
+app.use("/api/fitness", require("./routes/fitnessRoutes"));
 
 app.get("/", (req, res) => {
     res.json({
@@ -26,3 +28,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
