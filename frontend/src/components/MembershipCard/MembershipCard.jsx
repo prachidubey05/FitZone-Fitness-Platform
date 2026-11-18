@@ -1,7 +1,7 @@
-// PHASE 3 UPDATE: Membership cards submit a request for the selected database plan.
+
 import "./MembershipCard.css";
 
-export default function MembershipCard({ plan, onRequest }) {
+export default function MembershipCard({ plan }) {
   const { name, price, duration, features, popular } = plan;
 
   return (
@@ -12,7 +12,7 @@ export default function MembershipCard({ plan, onRequest }) {
       <p className="plan-description">Membership plan</p>
 
       <div className="plan-price">
-        <span>₹</span>{Number(price).toLocaleString("en-IN")}
+        <span>₹</span>{price}
       </div>
       <p className="plan-duration">{duration}</p>
 
@@ -28,4 +28,3 @@ export default function MembershipCard({ plan, onRequest }) {
     </article>
   );
 }
-
