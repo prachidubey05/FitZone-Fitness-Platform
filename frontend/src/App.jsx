@@ -19,22 +19,27 @@ import "./App.css";
 
 function NotFound() {
   return (
-    <main className="not-found">
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <Link className="btn-primary" to="/">
-        Back to Home
-      </Link>
-    </main>
-  );
-}
-function ProtectedRoute({ children, adminOnly = false }) {
-  const token = localStorage.getItem("token");
-  const user = getSavedUser();
-  if (!token) return <Navigate to="/login" replace />;
-  if (adminOnly && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
-  return children;
-}
+    <>
+      <section id="center">
+        <div className="hero">
+          <img src={heroImg} className="base" width="170" height="179" alt="" />
+          <img src={reactLogo} className="framework" alt="React logo" />
+          <img src={viteLogo} className="vite" alt="Vite logo" />
+        </div>
+        <div>
+          <h1>Get started</h1>
+          <p>
+            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+          </p>
+        </div>
+        <button
+          type="button"
+          className="counter"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          Count is {count}
+        </button>
+      </section>
 
 export default function App() {
   return (
