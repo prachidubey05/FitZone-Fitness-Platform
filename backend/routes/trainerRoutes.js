@@ -1,5 +1,3 @@
-
-// PHASE 3 UPDATE: Trainer create, update, and delete routes now require administrator authorization.
 const express = require("express");
 const router = express.Router();
 
