@@ -2,11 +2,12 @@ import "./TrainerCard.css";
 
 export default function TrainerCard({ trainer }) {
   const { name, specialty, experience, image } = trainer;
+  const imageUrl = image?.startsWith("http") ? image : `https://images.unsplash.com/${image || "photo-1567013127542-490d757e51fc"}?auto=format&fit=crop&w=700&q=80`;
 
   return (
     <article className="trainer-card">
       <img
-        src={`https://images.unsplash.com/${image}?auto=format&fit=crop&w=700&q=80`}
+        src={imageUrl}
         alt={name}
       />
       <div className="trainer-info">
