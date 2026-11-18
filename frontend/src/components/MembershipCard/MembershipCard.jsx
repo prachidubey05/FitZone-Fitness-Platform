@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+// PHASE 3 UPDATE: Membership cards submit a request for the selected database plan.
 import "./MembershipCard.css";
 
-export default function MembershipCard({ plan }) {
+export default function MembershipCard({ plan, onRequest }) {
   const { name, price, duration, features, popular } = plan;
 
   return (
@@ -12,7 +12,7 @@ export default function MembershipCard({ plan }) {
       <p className="plan-description">Membership plan</p>
 
       <div className="plan-price">
-        <span>₹</span>{price}
+        <span>₹</span>{Number(price).toLocaleString("en-IN")}
       </div>
       <p className="plan-duration">{duration}</p>
 
@@ -24,9 +24,8 @@ export default function MembershipCard({ plan }) {
         ))}
       </ul>
 
-      <Link to="/register" className="plan-button">
-        Get Started
-      </Link>
+      <button type="button" className="plan-button" onClick={onRequest}>Request Membership</button>
     </article>
   );
 }
+
